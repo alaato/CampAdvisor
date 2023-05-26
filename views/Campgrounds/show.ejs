@@ -1,0 +1,85 @@
+<% layout('Layouts/boilerplate') -%>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-6">
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <% for( let i = 0; i < camp.images.length; i++ ) { %>
+            <div class="carousel-item <%= i === 0 ? 'active':'' %>">
+              <img crossorigin="anonymous" src="<%= camp.images[i].url%>" class=" d-block w-100" alt="...">
+            </div>
+          <% } %>
+        </div>
+        <% if (camp.images.length >1) { %>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        <% } %>
+        
+      </div>
+        <div class="card ">
+            <div class="card-body">
+              <h5 class="card-title"><%= camp.title %></h5>
+              <p class="card-text"><%= camp.description %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%= camp.location %></li>
+              <li class="list-group-item"><%= camp.author.username %></li>
+              <li class="list-group-item"><%= camp.price %></li>
+            </ul>
+            <% if (currentUser && currentUser.id === camp.author.id) { %>
+              <div class="card-body">
+                <form class="btn  btn-danger" action="/campgrounds/<%= camp.id %>/delete?_method=delete" method="post">
+                    <button class="btn btn-sm" >Delete camp</button>
+                </form>
+              <a class="btn btn-primary" href="/campgrounds/<%= camp.id %>/edit">edit camp</a>
+            </div>
+            <% } %>
+            
+            
+          </div>
+          
+          
+    </div>
+    <div class="col-6">
+      <form class=" needs-validation mb-3" action="/campgrounds/<%= camp.id %>/review" method="post" novalidate >
+        <h2>Leave a review</h2>
+        <div>
+          <label for="rating" class="form-label">Rating</label>
+          <input type="range" min="1" max="5" step="1" class="form-range" id="rating" name="rating">
+        </div>
+        <div>
+          <label class="form-label " for="body">Review</label>
+          <textarea class="form-control" name="comment" id="comment" rows="5" required ></textarea> 
+        </div>
+        <% if (!currentUser) { %>
+          <a class = "btn btn-success mt-3" href="/login" > sign in to review</a>
+          <% } else {%>
+          <button type="submit" class="btn btn-success mt-3">submit</button>
+        <% } %>
+    </form>
+    <% for( let review of camp.reviews ) { %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Username</h5>
+          <h6 class="card-text" >Rating : <%= review.rating %></h6>
+          <p class="card-text"><%= review.comment %></p>
+          <% if (currentUser && currentUser.id == review.author._id) { %>
+            <form  action="/campgrounds/<%= camp.id %>/review/<%= review.id %>?_method=delete" method="post"> <button class ="btn btn-sm btn-danger"> delete</button></form>
+          <% } %>
+        </div>
+        
+      </div>
+    
+    <% } %>
+  
+    </div>
+    
+</div>
+
+

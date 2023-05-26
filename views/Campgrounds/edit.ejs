@@ -1,0 +1,58 @@
+<% layout('Layouts/boilerplate') -%>
+
+<form action="/campgrounds/<%= camp.id %>?_method=PUT" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+<div class=" py-5 row justify-content-center">
+  
+  <% if (camp.images.length >1) { %>#
+    <h3>select the pictures you want you delete and click on update campground to delete</h3>
+
+    <% for( let i = 0; i < camp.images.length; i++ ) { %>
+      <div class="image-check col-12 col-md-3 col-lg-3 row">
+        <img src="<%= camp.images[i].thumbnail%>" class = 'col-12'alt="">
+        <input type="checkbox" name="imagedelete[]" id="image-<%= i %>" value="<%= camp.images[i].filename %>">
+      </div>
+    <% } %>
+  <% } %>
+  
+</div>
+
+    <div class="row justify-content-center my-5">
+        <h1 class="col-6 offset-1">Edit Campground</h1>
+        <div class="col-6 offset-1 ">
+           
+
+                <div class="mb-3">
+                  <label for="title" class="form-label">Camp Title</label>
+                  <input type="text" name="title" class="form-control" id="title" value="<%= camp.title %>" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="location" class="form-label">Location</label>
+                  <input type="text" name="location" class="form-control" id="location"  value="<%= camp.location %>" required>
+                </div>
+
+                <label for="price">price</label>
+                <div class="input-group my-3">
+                    <span class="input-group-text">$</span>
+                    <div class="form-floating">
+                      <input type="text" name= "price" class="form-control" id="price" placeholder="" value="<%= camp.price %>" required> 
+                    </div>
+                  </div>
+                <div class="mb-3">
+                  <label for="formFileMultiple" class="form-label">Multiple files input example</label>
+                  <input class="form-control" type="file" name="image" id="formFileMultiple" multiple>
+                </div>
+                <div class="mb-3">
+                  <label for="description" class="form-label">Description</label>
+                  <textarea  name="description" class="form-control" id="description" required> <%= camp.description %></textarea>
+                </div>
+                
+                
+                <button type="submit" class="btn btn-success">Update Campground</button>
+              
+        
+        </div>
+    </div>
+  </form>
+
+    <a class="btn btn-primary mt-1" href="/campgrounds/<%= camp.id %>">back to the camp</a>

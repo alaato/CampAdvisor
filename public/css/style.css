@@ -1,0 +1,15 @@
+.image-check
+{
+    position: relative;
+}
+
+input[type="checkbox"]
+{
+    position:absolute;
+    top:0;
+  
+}
+body
+{
+    background: url('https://cloudfront-us-east-1.images.arcpublishing.com/advancelocal/ZJM4YYWEKFD7NJ3JI22Y2NUAZQ.jpg');
+}

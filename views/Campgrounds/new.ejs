@@ -1,0 +1,39 @@
+<% layout('Layouts/boilerplate') -%>
+
+
+    <div class="row justify-content-center my-5">
+        <h1 class="col-6 offset-1">New Campground</h1>
+        <div class="col-6 offset-1 ">
+            <form action="/campgrounds" class="mb-3 needs-validation" method="post" novalidate enctype="multipart/form-data">
+                <div class="mb-3">
+                  <label for="title" class="form-label">Camp Title</label>
+                  <input type="text" name="title" class="form-control" id="title" required>
+                
+                </div>
+                <div class="mb-3">
+                  <label for="location" class="form-label">Location</label>
+                  <input type="text" name="location" class="form-control" id="location" required>
+                </div>
+                <label for="price">price</label>
+                <div class="input-group my-3">
+                    <span class="input-group-text">$</span>
+                    <div class="form-floating">
+                      <input type="text" name= "price" class="form-control" id="price" required> 
+                    </div>
+                  </div>
+                  <input type="file" name="image" id="image" multiple>
+                <!-- <div class="mb-3">
+                  <label for="image" class="form-label">Image Url</label>
+                  <input type="text" name="image" class="form-control" id="image" required>
+                </div> -->
+                <div class="mb-3">
+                  <label for="description" class="form-label">Description</label>
+                  <textarea name="description" class="form-control" id="description" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-success">Add Campground</button>
+              </form>
+        <a href="/campgrounds">All camps</a>
+        
+        </div>
+    </div>

@@ -1,0 +1,41 @@
+<% layout('Layouts/Boilerplate') -%>
+
+<section class="mt-4 pt-5">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+              <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-4">Log in</h2>
+  
+                <form action="/login" method="post" class="text-center needs-validation" novalidate>
+  
+                  <div class="form-outline mb-3">
+                    <input required type="text" id="form3Example1cg" name="username" class="form-control form-control-lg mb-2" />
+                    <label class="form-label" for="form3Example1cg">Username</label>
+                  </div>
+  
+                
+                  <div class="form-outline mb-3">
+                    <input required type="password" id="form3Example4cg" name= "password" class="form-control form-control-lg mb-2" />
+                    <label class="form-label" for="form3Example4cg">Password</label>
+                  </div>
+  
+                  
+                  
+                  <div class="d-flex justify-content-center">
+                    <button type="submit"
+                      class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">login</button>
+                  </div>
+  
+                </form>
+                <p class="text-center text-muted mt-2 mb-0">need an account? <a href="/signup"
+                  class="fw-bold text-body"><u>signup here</u></a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
