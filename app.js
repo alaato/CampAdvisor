@@ -21,20 +21,16 @@ const user = require('./models/users')
 const authRoute = require('./routes/auth'),
 helmet = require('helmet'),
 scriptUrl = require('./directives')
+const { MongoClient, ServerApiVersion } = require('mongodb')
+const url = process.env.Db_url
 
 
 main().catch(err => console.log(err));
 
 async function main() {
-    try {
-        console.log("connected g mongoose");
-        await mongoose.connect('mongodb://127.0.0.1:27017/YelpCamp');
-      } catch (error) {
-        handleError(error);
-      }
-      mongoose.connection.on('error', err => {
-        logError(err);
-      });
+    
+        console.log("connected to database");
+        await mongoose.connect(url);
 }
 
 
