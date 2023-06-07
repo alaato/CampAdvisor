@@ -21,8 +21,8 @@ const user = require('./models/users')
 const authRoute = require('./routes/auth'),
 helmet = require('helmet'),
 scriptUrl = require('./directives')
-const { MongoClient, ServerApiVersion } = require('mongodb')
-const url = process.env.Db_url
+const MongoStore = require('connect-mongo');
+
 
 
 main().catch(err => console.log(err));
@@ -30,13 +30,12 @@ main().catch(err => console.log(err));
 async function main() {
     
         console.log("connected to database");
-        await mongoose.connect(url);
+        await mongoose.connect(process.env.Db_url);
 }
 
 
 
 app.engine('ejs', ejsmate)
-
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
@@ -45,8 +44,18 @@ app.use(express.static( "public" ) );
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended : true}))
 
+const store = MongoStore.create({
+  mongoUrl: dbUrl,
+  touchAfter: 24 * 60 * 60,
+  crypto: {
+      secret: 'thisshouldbeabettersecret!'
+  }
+});
+store.on('error', err => console.log(err));
+
 app.use(session({
   httpOnly: true,
+  store: store,
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
