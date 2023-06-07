@@ -45,7 +45,7 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended : true}))
 
 const store = MongoStore.create({
-  mongoUrl: dbUrl,
+  mongoUrl: process.env.Db_url,
   touchAfter: 24 * 60 * 60,
   crypto: {
       secret: 'thisshouldbeabettersecret!'
