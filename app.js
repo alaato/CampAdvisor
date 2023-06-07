@@ -45,7 +45,7 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended : true}))
 
 const store = MongoStore.create({
-  mongoUrl: Url,
+  mongoUrl: 'mongodb+srv://10alaato:u1D2ipWi8xPEhlpU@cluster0.prcgall.mongodb.net/?retryWrites=true&w=majority',
   touchAfter: 24 * 60 * 60,
   crypto: {
       secret: 'thisshouldbeabettersecret!'
