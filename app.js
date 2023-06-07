@@ -100,7 +100,7 @@ app.use('/campgrounds/:id/review', reveiwRoute)
 
 app.get('/', (req, res)=>
 {
-    res.render('campgrounds/home')
+    res.render('Campgrounds/home')
 })
 
 app.all('*', (req, res, next)=>{
