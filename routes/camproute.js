@@ -26,9 +26,16 @@ const ValidateCampground = function (req, res, next)
 
 router.get('/', async (req, res)=>
 {
-
-  const allcampgrounds = await Campground.find({})
-  res.render('Campgrounds/index', {allcampgrounds})
+  try
+  {
+    const allcampgrounds = await Campground.find({})
+    res.render('Campgrounds/index', {allcampgrounds})
+  }
+catch(error)
+{
+  next(new ExpressError('Not found unfortunely',500))
+}
+ 
 })
 router.get('/new', isLogedIn ,(req, res)=>
 {
