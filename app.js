@@ -22,7 +22,7 @@ const authRoute = require('./routes/auth'),
 helmet = require('helmet'),
 scriptUrl = require('./directives')
 const MongoStore = require('connect-mongo');
-
+const Url = process.env.Db_url
 
 
 main().catch(err => console.log(err));
@@ -45,7 +45,7 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended : true}))
 
 const store = MongoStore.create({
-  mongoUrl: process.env.Db_url,
+  mongoUrl: Url,
   touchAfter: 24 * 60 * 60,
   crypto: {
       secret: 'thisshouldbeabettersecret!'
