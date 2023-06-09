@@ -34,10 +34,10 @@
             </ul>
             <% if (currentUser && currentUser.id === camp.author.id) { %>
               <div class="card-body">
-                <form class="btn  btn-danger" action="/campgrounds/<%= camp.id %>/delete?_method=delete" method="post">
-                    <button class="btn btn-sm" >Delete camp</button>
+                <form action="/campgrounds/<%= camp.id %>/delete?_method=delete" method="post">
+                    <button class="btn btn-danger w-100" >Delete camp</button>
                 </form>
-              <a class="btn btn-primary" href="/campgrounds/<%= camp.id %>/edit">edit camp</a>
+              <a class="btn button-card" href="/campgrounds/<%= camp.id %>/edit">Edit camp</a>
             </div>
             <% } %>
             
@@ -60,7 +60,7 @@
         <% if (!currentUser) { %>
           <a class = "btn btn-success mt-3" href="/login" > sign in to review</a>
           <% } else {%>
-          <button type="submit" class="btn btn-success mt-3">submit</button>
+          <button type="submit" class="btn btn-success mt-3">Submit</button>
         <% } %>
     </form>
     <% for( let review of camp.reviews ) { %>

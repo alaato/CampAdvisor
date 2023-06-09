@@ -1,23 +1,23 @@
 <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary mb-3">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+    <div class="container-fluid  h-90">
+      <a class="navbar-brand" href="#">CampAdvisor</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse  navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
-          <a class="nav-link" href="/campgrounds/new">NewCamp</a>
-          <a class="nav-link" href="/campgrounds">Campgrounds</a>
+          <a class="nav-link button-1 active" aria-current="page" href="/">Home</a>
+          <a class="nav-link button-1" href="/campgrounds/new">NewCamp</a>
+          <a class="nav-link button-1" class="btn button-1" href="/campgrounds">Campgrounds</a>
          </div>
         <div class="navbar-nav ms-auto">
           <% if (currentUser) { %>
             <form action="/logout" method="post">
-              <button type="submit"> logout</button>
+              <button type="submit" class="button-1"> logout</button>
             </form>
           <% } else { %>
-            <a class="nav-link active" aria-current="page" href="/signup">signup</a>
-            <a class="nav-link" href="/login">login</a>
+            <a class="nav-link button-1 active" aria-current="page" href="/signup">signup</a>
+            <a class="nav-link button-1" href="/login">login</a>
           <% } %>
           
           

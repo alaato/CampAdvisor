@@ -1,5 +1,5 @@
 <% layout('Layouts/Boilerplate') -%>
-    <h1 class="pt-5 text-center">Campgrounds</h1>
+    <h1 class="pt-5 text-center">CAMPGROUNDS</h1>
  
         <div class="row justify-content-center ">
         <% for( let campground of allcampgrounds) { %>
@@ -10,9 +10,8 @@
                       <h5 class="card-title"><%= campground.title %></h5>
                       <p class="card-text"><%= campground.description %></p>
                     </div>
-                    <div class="card-footer">
-                        <a href="/campgrounds/<%= campground.id %>" class="btn btn-primary me-1">Show Camp</a>
-
+                    <div class="card-footer d-flex flex-column">
+                        <a href="/campgrounds/<%= campground.id %>" class="btn button-card me-1">Show Camp</a>
                       </div>
                   </div>
                   

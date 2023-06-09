@@ -28,7 +28,7 @@ router.get('/', async (req, res)=>
 {
   try
   {
-    const allcampgrounds = await Campground.find({})
+    const allcampgrounds = await Campground.find({}).populate('author');
     res.render('Campgrounds/index', {allcampgrounds})
   }
 catch(error)
