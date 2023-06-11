@@ -1,3 +1,5 @@
+
+
 .image-check
 {
     position: relative;
@@ -15,16 +17,22 @@ input[type="checkbox"]
   font-family: 'DM Sans', sans-serif;
 }
 
-body
+
+#home h1
 {
-  position: relative;
-  background-image: url('https://webimages.mongodb.com/_com_assets/cms/kv187puqz4ly4m4kj-25.svg?auto=format%252Ccompress');
-  background-position: center;
+
+  color: white
+}
+.navbar
+{
+    background-color: white;
 }
  h1, h2, h3, h4, h5, h6
 {
     font-family: 'DM Sans', sans-serif;
-    font-weight: bold
+    font-weight: bold;
+    color: #010431;
+
 }
 p
 {
@@ -125,3 +133,54 @@ p
   position: absolute;
 }
 
+
+
+/* CSS */
+.button-59 {
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-59:focus {
+  color: #171e29;
+}
+
+.button-59:hover {
+  border-color: rgb(139, 74, 0);
+  color: rgb(0, 0, 0);
+  fill: rgb(241, 244, 248);
+}
+
+.button-59:active {
+  border-color: #06f;
+  color: #06f;
+  fill: rgb(245, 245, 245);
+}
+
+@media (min-width: 768px) {
+  .button-59 {
+    min-width: 170px;
+  }
+}

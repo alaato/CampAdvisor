@@ -45,7 +45,7 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended : true}))
 
 const store = MongoStore.create({
-  mongoUrl: 'mongodb+srv://10alaato:u1D2ipWi8xPEhlpU@cluster0.prcgall.mongodb.net/?retryWrites=true&w=majority',
+  mongoUrl: Url,
   touchAfter: 24 * 60 * 60,
   crypto: {
       secret: 'thisshouldbeabettersecret!'
@@ -72,6 +72,10 @@ app.use(
         "script-src": ["'self'", ...scriptUrl],
         'img-src' : ["'self'",
          "https://res.cloudinary.com/dnmkjdwgf/",
+         'https://source.unsplash.com/collection/2319173',
+         'https://images.unsplash.com/',
+         'https://webimages.mongodb.com/_com_assets/cms/kv187puqz4ly4m4kj-25.svg?auto=format%252Ccompress',
+         'https://media.campwildfire.co.uk',
          "data:"
         ]
       },

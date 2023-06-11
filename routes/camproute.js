@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const CatchAsync = require('../utils/CatchAsync');
 const ExpressError = require('../utils/ExpressError')
-const Campground = require('../models/campgrounds');
+const {Campground} = require('../models/campgrounds');
 const {CampgroundSchema} = require('../Schemas/schemas');
 const {isLogedIn, isAuthor} = require('../middleware/middlewares');
 const multer = require('multer');
@@ -24,17 +24,14 @@ const ValidateCampground = function (req, res, next)
     }
 }
 
-router.get('/', async (req, res)=>
+router.get('/', async (req, res, next)=>
 {
-  try
-  {
+
+  
     const allcampgrounds = await Campground.find({}).populate('author');
     res.render('Campgrounds/index', {allcampgrounds})
-  }
-catch(error)
-{
-  next(new ExpressError('Not found unfortunely',500))
-}
+  
+
  
 })
 router.get('/new', isLogedIn ,(req, res)=>

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose
-imageSchema = new Schema({
+const imageSchema = new Schema({
     
         url: String,
         filename: String,
@@ -26,4 +26,7 @@ const CampgroundSchema = new Schema({
         ref: 'User'
     }
 })
-module.exports = mongoose.model('Campground', CampgroundSchema)
+const Campground = mongoose.model('Campground', CampgroundSchema)
+const Image =  mongoose.model('imageSchema', imageSchema)
+module.exports = {Campground, Image}
+

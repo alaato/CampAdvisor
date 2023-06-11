@@ -1,4 +1,4 @@
-const Campground = require('../models/campgrounds');
+const {Campground} = require('../models/campgrounds');
 const Review = require('../models/review');
 
 const isAuthor = async(req, res, next) => {
